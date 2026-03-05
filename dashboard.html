@@ -676,4 +676,555 @@
       </div>
     </div>
 
-  </div
+  </div>
+</main>
+
+<!-- MODALS -->
+
+<!-- Add Patient -->
+<div class="modal-overlay" id="modal-addPatient">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">👥 Add New Patient</div>
+      <button class="modal-close" onclick="closeModal('addPatient')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-input" id="p_name" placeholder="Juan Dela Cruz">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Gender</label>
+        <select class="form-select" id="p_gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Birthdate</label>
+        <input type="date" class="form-input" id="p_birthdate">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Address</label>
+        <input type="text" class="form-input" id="p_address" placeholder="Street, City">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Contact Number</label>
+        <input type="text" class="form-input" id="p_contact" placeholder="09XX-XXX-XXXX">
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-cancel" onclick="closeModal('addPatient')">Cancel</button>
+      <button class="btn btn-primary" onclick="addPatient()">Save Patient</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Appointment -->
+<div class="modal-overlay" id="modal-addAppointment">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">📅 Book Appointment</div>
+      <button class="modal-close" onclick="closeModal('addAppointment')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Patient</label>
+        <select class="form-select" id="a_patient"></select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Doctor</label>
+        <select class="form-select" id="a_doctor"></select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Date</label>
+        <input type="date" class="form-input" id="a_date">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Time</label>
+        <input type="time" class="form-input" id="a_time">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Notes</label>
+        <textarea class="form-textarea" id="a_notes" placeholder="Reason for visit..."></textarea>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-cancel" onclick="closeModal('addAppointment')">Cancel</button>
+      <button class="btn btn-primary" onclick="addAppointment()">Book Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Medicine -->
+<div class="modal-overlay" id="modal-addMedicine">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">💊 Add Medicine</div>
+      <button class="modal-close" onclick="closeModal('addMedicine')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Medicine Name</label>
+        <input type="text" class="form-input" id="m_name" placeholder="Paracetamol">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <textarea class="form-textarea" id="m_desc" placeholder="Usage and description..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Stock</label>
+        <input type="number" class="form-input" id="m_stock" placeholder="100">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Unit</label>
+        <input type="text" class="form-input" id="m_unit" placeholder="tablet / bottle / box">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Price (₱)</label>
+        <input type="number" class="form-input" id="m_price" placeholder="0.00" step="0.01">
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-cancel" onclick="closeModal('addMedicine')">Cancel</button>
+      <button class="btn btn-primary" onclick="addMedicine()">Save Medicine</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Bill -->
+<div class="modal-overlay" id="modal-addBill">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">💳 Create Bill</div>
+      <button class="modal-close" onclick="closeModal('addBill')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Patient</label>
+        <select class="form-select" id="b_patient"></select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Amount (₱)</label>
+        <input type="number" class="form-input" id="b_amount" placeholder="0.00" step="0.01">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Date</label>
+        <input type="date" class="form-input" id="b_date">
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-cancel" onclick="closeModal('addBill')">Cancel</button>
+      <button class="btn btn-primary" onclick="addBill()">Create Bill</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Lab -->
+<div class="modal-overlay" id="modal-addLab">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">🔬 Add Lab Result</div>
+      <button class="modal-close" onclick="closeModal('addLab')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Patient</label>
+        <select class="form-select" id="l_patient"></select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Test Name</label>
+        <input type="text" class="form-input" id="l_test" placeholder="CBC, Urinalysis, X-Ray...">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Result</label>
+        <textarea class="form-textarea" id="l_result" placeholder="Test result details..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Date</label>
+        <input type="date" class="form-input" id="l_date">
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-cancel" onclick="closeModal('addLab')">Cancel</button>
+      <button class="btn btn-primary" onclick="addLab()">Save Result</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Record -->
+<div class="modal-overlay" id="modal-addRecord">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">📋 Add Medical Record</div>
+      <button class="modal-close" onclick="closeModal('addRecord')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Patient</label>
+        <select class="form-select" id="r_patient"></select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Doctor</label>
+        <select class="form-select" id="r_doctor"></select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Diagnosis</label>
+        <textarea class="form-textarea" id="r_diagnosis" placeholder="Diagnosis details..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Treatment</label>
+        <textarea class="form-textarea" id="r_treatment" placeholder="Treatment plan..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Prescription</label>
+        <textarea class="form-textarea" id="r_prescription" placeholder="Medicines prescribed..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Date</label>
+        <input type="date" class="form-input" id="r_date">
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-cancel" onclick="closeModal('addRecord')">Cancel</button>
+      <button class="btn btn-primary" onclick="addRecord()">Save Record</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const API = localStorage.getItem('clinic_api') || 'https://ee7b9227a2f8cc51-180-191-232-44.serveousercontent.com';
+  let allPatients = [];
+  let allUsers = [];
+
+  // Auth check
+  const user = JSON.parse(localStorage.getItem('clinic_user') || 'null');
+  if (!user) window.location.href = 'index.html';
+
+  // Set user info
+  document.getElementById('userName').textContent = user?.name || 'User';
+  document.getElementById('userRole').textContent = user?.role || 'staff';
+  document.getElementById('userAvatar').textContent = (user?.name || 'U')[0].toUpperCase();
+
+  // Date
+  document.getElementById('dateBadge').textContent = new Date().toLocaleDateString('en-PH', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+
+  // Page navigation
+  const pages = {
+    dashboard: { title: 'Dashboard', sub: 'Overview of clinic operations' },
+    patients: { title: 'Patients', sub: 'Manage patient records' },
+    appointments: { title: 'Appointments', sub: 'Schedule and manage appointments' },
+    records: { title: 'Medical Records', sub: 'Patient medical history' },
+    billing: { title: 'Billing', sub: 'Manage bills and payments' },
+    medicines: { title: 'Pharmacy', sub: 'Medicine inventory' },
+    laboratory: { title: 'Laboratory', sub: 'Lab test results' },
+  };
+
+  function showPage(name) {
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    document.getElementById('sec-' + name).classList.add('active');
+    document.getElementById('pageTitle').textContent = pages[name].title;
+    document.getElementById('pageSub').textContent = pages[name].sub;
+    event?.target?.closest('.nav-item')?.classList.add('active');
+    closeSidebar();
+    loadPage(name);
+  }
+
+  function loadPage(name) {
+    if (name === 'dashboard') loadDashboard();
+    if (name === 'patients') loadPatients();
+    if (name === 'appointments') loadAppointments();
+    if (name === 'billing') loadBilling();
+    if (name === 'medicines') loadMedicines();
+    if (name === 'laboratory') loadLab();
+    if (name === 'records') loadRecords();
+  }
+
+  // API helper
+  async function api(endpoint, method = 'GET', body = null) {
+    const opts = { method, headers: { 'Content-Type': 'application/json' } };
+    if (body) opts.body = JSON.stringify(body);
+    const res = await fetch(`${API}/api/${endpoint}`, opts);
+    return res.json();
+  }
+
+  // Dashboard
+  async function loadDashboard() {
+    const [patients, appointments, medicines, lab] = await Promise.all([
+      api('patients.php'), api('appointments.php'), api('medicines.php'), api('laboratory.php')
+    ]);
+    document.getElementById('statPatients').textContent = patients.length || 0;
+    document.getElementById('statAppointments').textContent = appointments.length || 0;
+    document.getElementById('statMedicines').textContent = medicines.length || 0;
+    document.getElementById('statLab').textContent = lab.length || 0;
+    allPatients = patients;
+
+    const recent = patients.slice(0, 5);
+    const tbody = document.getElementById('dashPatients');
+    if (!recent.length) { tbody.innerHTML = '<tr><td colspan="4"><div class="empty-state"><div class="empty-icon">👥</div><div class="empty-text">No patients yet</div></div></td></tr>'; return; }
+    tbody.innerHTML = recent.map(p => `
+      <tr>
+        <td><span style="color:var(--accent);font-weight:600;">${p.patient_no}</span></td>
+        <td>${p.name}</td>
+        <td>${p.gender}</td>
+        <td>${p.contact}</td>
+      </tr>
+    `).join('');
+  }
+
+  // Patients
+  async function loadPatients() {
+    const data = await api('patients.php');
+    allPatients = data;
+    renderPatients(data);
+  }
+
+  function renderPatients(data) {
+    const tbody = document.getElementById('patientsTable');
+    if (!data.length) { tbody.innerHTML = '<tr><td colspan="6"><div class="empty-state"><div class="empty-icon">👥</div><div class="empty-text">No patients found</div></div></td></tr>'; return; }
+    tbody.innerHTML = data.map(p => `
+      <tr>
+        <td><span style="color:var(--accent);font-weight:600;">${p.patient_no}</span></td>
+        <td>${p.name}</td>
+        <td>${p.gender}</td>
+        <td>${p.birthdate || '—'}</td>
+        <td>${p.contact}</td>
+        <td><button class="btn btn-danger btn-sm" onclick="deletePatient(${p.id})">Delete</button></td>
+      </tr>
+    `).join('');
+  }
+
+  function searchPatients(q) {
+    const filtered = allPatients.filter(p => p.name.toLowerCase().includes(q.toLowerCase()) || p.patient_no.includes(q));
+    renderPatients(filtered);
+  }
+
+  async function addPatient() {
+    const data = {
+      name: document.getElementById('p_name').value,
+      gender: document.getElementById('p_gender').value,
+      birthdate: document.getElementById('p_birthdate').value,
+      address: document.getElementById('p_address').value,
+      contact: document.getElementById('p_contact').value,
+    };
+    if (!data.name || !data.contact) return alert('Please fill required fields');
+    await api('patients.php', 'POST', data);
+    closeModal('addPatient');
+    loadPatients();
+  }
+
+  async function deletePatient(id) {
+    if (!confirm('Delete this patient?')) return;
+    await api('patients.php', 'DELETE', { id });
+    loadPatients();
+  }
+
+  // Appointments
+  async function loadAppointments() {
+    const data = await api('appointments.php');
+    const tbody = document.getElementById('appointmentsTable');
+    if (!data.length) { tbody.innerHTML = '<tr><td colspan="6"><div class="empty-state"><div class="empty-icon">📅</div><div class="empty-text">No appointments yet</div></div></td></tr>'; return; }
+    tbody.innerHTML = data.map(a => `
+      <tr>
+        <td>${a.patient_name}</td>
+        <td>${a.doctor_name}</td>
+        <td>${a.date}</td>
+        <td>${a.time}</td>
+        <td><span class="badge badge-${a.status?.toLowerCase()}">${a.status}</span></td>
+        <td>
+          <button class="btn btn-success btn-sm" onclick="updateAppointment(${a.id},'Done')">Done</button>
+          <button class="btn btn-danger btn-sm" onclick="updateAppointment(${a.id},'Cancelled')">Cancel</button>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  async function addAppointment() {
+    const data = {
+      patient_id: document.getElementById('a_patient').value,
+      doctor_id: document.getElementById('a_doctor').value,
+      date: document.getElementById('a_date').value,
+      time: document.getElementById('a_time').value,
+      notes: document.getElementById('a_notes').value,
+    };
+    await api('appointments.php', 'POST', data);
+    closeModal('addAppointment');
+    loadAppointments();
+  }
+
+  async function updateAppointment(id, status) {
+    await api('appointments.php', 'PUT', { id, status });
+    loadAppointments();
+  }
+
+  // Billing
+  async function loadBilling() {
+    const data = await api('billing.php');
+    const tbody = document.getElementById('billingTable');
+    if (!data.length) { tbody.innerHTML = '<tr><td colspan="5"><div class="empty-state"><div class="empty-icon">💳</div><div class="empty-text">No bills yet</div></div></td></tr>'; return; }
+    tbody.innerHTML = data.map(b => `
+      <tr>
+        <td>${b.patient_name}</td>
+        <td style="color:var(--accent);font-weight:600;">₱${parseFloat(b.amount).toLocaleString()}</td>
+        <td><span class="badge badge-${b.status?.toLowerCase()}">${b.status}</span></td>
+        <td>${b.date}</td>
+        <td>
+          <button class="btn btn-success btn-sm" onclick="updateBill(${b.id},'Paid')">Mark Paid</button>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  async function addBill() {
+    const data = {
+      patient_id: document.getElementById('b_patient').value,
+      amount: document.getElementById('b_amount').value,
+      date: document.getElementById('b_date').value,
+    };
+    await api('billing.php', 'POST', data);
+    closeModal('addBill');
+    loadBilling();
+  }
+
+  async function updateBill(id, status) {
+    await api('billing.php', 'PUT', { id, status });
+    loadBilling();
+  }
+
+  // Medicines
+  async function loadMedicines() {
+    const data = await api('medicines.php');
+    const tbody = document.getElementById('medicinesTable');
+    if (!data.length) { tbody.innerHTML = '<tr><td colspan="5"><div class="empty-state"><div class="empty-icon">💊</div><div class="empty-text">No medicines yet</div></div></td></tr>'; return; }
+    tbody.innerHTML = data.map(m => `
+      <tr>
+        <td><strong>${m.name}</strong></td>
+        <td><span style="color:${m.stock < 10 ? '#ff6b6b' : 'var(--accent)'};font-weight:600;">${m.stock}</span></td>
+        <td>${m.unit}</td>
+        <td>₱${parseFloat(m.price).toLocaleString()}</td>
+        <td><button class="btn btn-danger btn-sm" onclick="deleteMedicine(${m.id})">Delete</button></td>
+      </tr>
+    `).join('');
+  }
+
+  async function addMedicine() {
+    const data = {
+      name: document.getElementById('m_name').value,
+      description: document.getElementById('m_desc').value,
+      stock: document.getElementById('m_stock').value,
+      unit: document.getElementById('m_unit').value,
+      price: document.getElementById('m_price').value,
+    };
+    await api('medicines.php', 'POST', data);
+    closeModal('addMedicine');
+    loadMedicines();
+  }
+
+  async function deleteMedicine(id) {
+    if (!confirm('Delete this medicine?')) return;
+    await api('medicines.php', 'DELETE', { id });
+    loadMedicines();
+  }
+
+  // Laboratory
+  async function loadLab() {
+    const data = await api('laboratory.php');
+    const tbody = document.getElementById('labTable');
+    if (!data.length) { tbody.innerHTML = '<tr><td colspan="5"><div class="empty-state"><div class="empty-icon">🔬</div><div class="empty-text">No lab results yet</div></div></td></tr>'; return; }
+    tbody.innerHTML = data.map(l => `
+      <tr>
+        <td>${l.patient_name}</td>
+        <td><strong>${l.test_name}</strong></td>
+        <td>${l.result}</td>
+        <td>${l.date}</td>
+        <td><button class="btn btn-danger btn-sm" onclick="">Delete</button></td>
+      </tr>
+    `).join('');
+  }
+
+  async function addLab() {
+    const data = {
+      patient_id: document.getElementById('l_patient').value,
+      test_name: document.getElementById('l_test').value,
+      result: document.getElementById('l_result').value,
+      date: document.getElementById('l_date').value,
+    };
+    await api('laboratory.php', 'POST', data);
+    closeModal('addLab');
+    loadLab();
+  }
+
+  // Medical Records
+  async function loadRecords() {
+    const data = await api('medical_records.php');
+    const tbody = document.getElementById('recordsTable');
+    if (!data.length) { tbody.innerHTML = '<tr><td colspan="5"><div class="empty-state"><div class="empty-icon">📋</div><div class="empty-text">No records yet</div></div></td></tr>'; return; }
+    tbody.innerHTML = data.map(r => `
+      <tr>
+        <td>${r.patient_name}</td>
+        <td>${r.doctor_name}</td>
+        <td>${r.diagnosis?.substring(0, 40)}...</td>
+        <td>${r.date}</td>
+        <td><button class="btn btn-success btn-sm">View</button></td>
+      </tr>
+    `).join('');
+  }
+
+  async function addRecord() {
+    const data = {
+      patient_id: document.getElementById('r_patient').value,
+      doctor_id: document.getElementById('r_doctor').value,
+      diagnosis: document.getElementById('r_diagnosis').value,
+      treatment: document.getElementById('r_treatment').value,
+      prescription: document.getElementById('r_prescription').value,
+      date: document.getElementById('r_date').value,
+    };
+    await api('medical_records.php', 'POST', data);
+    closeModal('addRecord');
+    loadRecords();
+  }
+
+  // Modal helpers
+  async function openModal(name) {
+    document.getElementById('modal-' + name).classList.add('open');
+    // Load patients for dropdowns
+    if (['addAppointment','addBill','addLab','addRecord'].includes(name)) {
+      const patients = await api('patients.php');
+      const users = await api('users.php').catch(() => []);
+      const pOpts = patients.map(p => `<option value="${p.id}">${p.name}</option>`).join('');
+      const uOpts = users.map(u => `<option value="${u.id}">${u.name}</option>`).join('');
+      if (name === 'addAppointment') { document.getElementById('a_patient').innerHTML = pOpts; document.getElementById('a_doctor').innerHTML = uOpts; }
+      if (name === 'addBill') document.getElementById('b_patient').innerHTML = pOpts;
+      if (name === 'addLab') document.getElementById('l_patient').innerHTML = pOpts;
+      if (name === 'addRecord') { document.getElementById('r_patient').innerHTML = pOpts; document.getElementById('r_doctor').innerHTML = uOpts; }
+    }
+    // Set today's date
+    const today = new Date().toISOString().split('T')[0];
+    document.querySelectorAll(`#modal-${name} input[type=date]`).forEach(el => el.value = today);
+  }
+
+  function closeModal(name) {
+    document.getElementById('modal-' + name).classList.remove('open');
+  }
+
+  function logout() {
+    localStorage.clear();
+    window.location.href = 'index.html';
+  }
+
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('overlayBg').classList.toggle('open');
+  }
+
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlayBg').classList.remove('open');
+  }
+
+  // Init
+  loadDashboard();
+</script>
+</body>
+</html>
